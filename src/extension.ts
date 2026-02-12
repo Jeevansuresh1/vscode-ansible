@@ -422,7 +422,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
       inlineSuggestionTextDocumentChangeHandler(e);
     }),
   );
-  
+
   // Initialize QuickLinks provider early so it's available in auth callback
   const quickLinksHome = new QuickLinksWebviewViewProvider(
     context.extensionUri,
@@ -1202,14 +1202,6 @@ export function deactivate(): Thenable<void> | undefined {
     return undefined;
   }
   return client.stop();
-}
-/**
- * Updates the explorer state and sends it to the explorer webview if it's open
- */
-async function updateExplorerState(
-  lightSpeedManager: LightSpeedManager,
-): Promise<void> {
-  lightSpeedManager.lightspeedExplorerProvider?.refreshWebView();
 }
 
 const handleMcpServerConfigurationChange = async (
